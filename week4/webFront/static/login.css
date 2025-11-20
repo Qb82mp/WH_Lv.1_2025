@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-family: 'Fantasy';
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background-color: #223344;
+    display: flex;
+    justify-content: center;
+}
+
+.titleStr {
+    font-size: 25px;
+    font-weight: bold;
+    align-self: center;
+    color: #fff;
+}
+
+.loginUI {
+    position: relative;
+    padding-top: 20px;
+}
+
+.loginUI hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.loginTitle ,.hotelTitle {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.inputStr {
+    width: 170px;
+}
+
+.accountStr, .agreeCheckBox, .hotelID {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-top: 10px;
+}
+
+.passStr {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.inputTitle {
+    width: 50px;
+}
+
+.agreeCheckBox span {
+    width: 90px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.loginBtn, .hotelBtn {
+    width: 50px;
+    height: 35px;
+    font-size: 15px;
+}
+
+
+

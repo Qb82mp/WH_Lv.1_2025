@@ -1,0 +1,44 @@
+<!DOCTYPE html>  
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>會員系統</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link href="{{url_for('static', path='/login.css')}}" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="static/login.css"> -->
+    </head>
+    <body>
+        <header class="headTitle">
+            <span class="titleStr">歡迎光臨，請輸入信箱密碼</span>
+        </header>
+        <div class="loginUI">
+            <div class="loginTitle">登入系統</div>
+            <div class="accountStr">
+                <span class="inputTitle">信箱</span>
+                <input type="text" class="inputStr" id="inputId">
+            </div>
+            <div class="passStr">
+                <span class="inputTitle">密碼</span>
+                <input type="password" class="inputStr" id="inputPassword">
+            </div>
+            <div class="agreeCheckBox">
+                <span>同意條款</span>
+                <input type="checkbox" id="agreeChecked">
+            </div>
+            <div class="submit">
+                <input type="button" class="loginBtn" id="submitBtn" value="登入">
+            </div>
+            <hr>
+            <div class="hotelTitle">取得旅館資訊</div>
+            <div class="hotelID">
+                <span class="inputTitle">編號</span>
+                <input type="text" class="inputStr" id="inputNumber">
+            </div>
+            <div class="submit">
+                <input type="button" class="hotelBtn" id="searchBtn" value="取得">
+            </div>
+        </div>
+        <script src="{{ url_for('static', path='/login.js')}}"></script>
+    </body>
+</html>

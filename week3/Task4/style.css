@@ -1,0 +1,411 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+/* 因預設的font-size為16px，所以如果要使用rem設置20px，
+需要將16px * 62.5% -> 得出10px等於1rem。 之後就使用這種方式設置。*/
+
+html{
+    font-size: 62.5%;
+}
+
+nav{
+    /* width: 100%; */
+    height: 4rem; 
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* hamburger menu功能 */
+#menu_icon{
+    height: 4rem;
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+}
+
+#menu_icon img{
+    height: 100%;;
+    vertical-align: middle;
+}
+
+#menu_close_btn{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    font-size: 2rem;
+    background-color: transparent;
+}
+
+a {
+    font-family: serif;
+    color: black;
+    text-decoration: none; /*將連結的底線移除 */
+}
+
+.navbar .title{
+    font-weight: bold;
+    margin-left: 1.2rem;
+}
+
+.navbar .hamberger_bg{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 58%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0rem 0.4rem 1rem rgba(0, 0, 0, .5); /* 輕柔的陰影。 x偏移 0px, y偏移 4px, 模糊半徑 8px, 擴散半徑 0px, 顏色 */
+
+}
+
+.navbar ul{
+    display: flex;  /* 改為水平 */
+    list-style: none;   /* 將ul中包裹的li顯示的各項目圓點移除 */
+    margin-right: 1.2rem;
+}
+
+.ul_nav li{
+    padding-left: 3rem;
+}
+
+.section_title{
+    background-color: #e1f0f7;
+    font-size: 4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main{
+    width: 1200px;
+    margin: 4rem auto;   /* 左右置中 */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*outline: 10px solid;*/
+    margin-bottom: 10rem;
+}
+
+.first_part{
+    width: 100%; 
+    display: grid;
+    grid-template-rows: repeat(2, 50px);  /* 設定兩個行位，行的高度都是50px */
+    grid-template-columns: repeat(3, 1fr);  /* 明確的標示有多少欄位*/
+    /*grid-auto-flow: row;  /* 自動排列物件由左到右，然後自動換行(預設行為) */
+    /*grid-auto-columns: 1fr;  /* 設定隱性列的寬度，grid知道每一欄為多少寬度。 這裡設置最小寬度為1fr，確保grid可以自動產生列 */
+    gap: 20px;  /* 只設定物件與物件中間的間距 */
+
+}
+
+.first_part img{
+    width: 80px;
+    height: 50px;
+}
+
+.first_part span{
+    font-family: serif;
+    padding-left: 10px;
+}
+
+.bar1{
+    grid-column: 1/ span 3;
+    background-color: #c8dce5;
+    display: flex;
+    align-items: center;
+}
+
+.bar2{
+    grid-column: span 2;
+    background-color: #c8dce5;
+    display: flex;
+    align-items: center;
+}
+
+.bar3{
+    grid-column: span 1;
+    background-color: #c8dce5;
+    display: flex;
+    align-items: center;
+}
+
+.second_part{
+    width: 1200px; 
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 387px minmax(0px, 190px) minmax(0px, 190px) minmax(0px, 190px) minmax(0px, 190px); /* 假設有 2 欄 */
+    /*grid-template-rows: 227px 227px; /* 僅明確定義了前 2 行 */
+    margin-top: 2rem;
+}
+
+.second_part .sec_block{
+    width: 100%;
+    height: 227px;
+    display: grid;
+    /*定義一個 1x1 的網格，使所有子元素可以疊加在同一格*/
+    grid-template-areas: "stack";
+    /* 確保其內部元素使用絕對定位時是相對於它*/
+    position: relative;
+    /* 讓 .sec_block 內的元素可以根據內容自動定位*/
+    align-content: stretch;
+    box-sizing: border-box;
+    /* 核心：防止 span 內容撐高整個 sec_block */
+    overflow: hidden;
+}
+
+/* 讓 .sec_block 內的所有直接子元素都疊加到 "stack" 這個單元格內 */
+.sec_block > * {
+    grid-area: stack;
+}
+
+.sec_block .bgImg{
+    /*height: 100%;*/
+    min-height: 100%;
+    width: 100%;  /* 確保圖片寬度不會超過它所在的 Grid 項目寬度*/
+    object-fit: cover;
+    /* 關鍵修正：防止內容撐開高度 */
+    overflow: hidden;
+    z-index: 1;
+}
+
+.sec_block span{
+    max-width: 100%;
+    min-width: 0;
+    height: 18%;
+    background-color: rgba(200,220,229, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: end;
+    /* 確保高度計算是邊界盒模型，通常有助於精確計算 */
+    box-sizing: border-box;
+    padding: 0 1rem;
+    z-index: 2;
+}
+
+.sec_block .text-content{
+    min-width: 0;
+    width: 100%;
+    text-align: center;
+    /* 使用white-space: nowrap;的CSS，設定文字不換行 */
+    white-space: nowrap;  
+    /* 超過得範圍就隱藏 */
+    overflow: hidden;
+    /* 再搭配text-overflow: ellipsis;，讓超出的文字顯示...*/
+    text-overflow: ellipsis;
+}
+
+.sec_block .star{
+    /* 由於已經設定 grid-area: stack;，它將位於該單元格內 */
+    display: flex;
+    justify-self: end; /* 水平靠右 */
+    align-self: start; /* 垂直靠上 */
+    margin: 1rem;
+    z-index: 3;
+    opacity: .5;
+}
+
+.load_btn {
+    width: 150px;
+    height: 50px;
+    margin: 50px;
+    border: 1px solid #D6D3D1;
+}
+
+
+/* 設定視窗變動時，內部的物件位置也要跟著調整 */
+@media (1200px < width <= 1920px){
+    body{
+        font-size: 2rem;
+    }
+
+    header{
+        width: 100%;
+    }
+
+    .section_title{
+        width: 100%;
+        height: 250px;
+    }
+
+    .main{
+        width: 120rem;
+    }
+
+}
+
+@media (600px < width <= 1200px){
+    body{
+        font-size: 2rem;
+    }
+
+    header{
+        width: 100%;
+    }
+
+    .section_title{
+        width: 100%;
+        height: 250px;
+    }
+
+    .main{
+        width: 90%;
+    }
+
+    .second_part .sec_block{
+        height: 100%;
+    }
+
+    /* bar的部分 */
+    .first_part{
+        grid-template-columns: repeat(2, minmax(0, 1fr));  /* 告訴 Grid 欄位的最小寬度可以是 0 */
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .bar1{
+        grid-column: 1/ span 1;
+    }
+
+    .bar2{
+        grid-column: span 1;
+    }
+
+    .bar3{
+        grid-column: span 2;
+    }
+
+    /* Content Blocks的部分 */
+    .second_part{
+        grid-template-columns: repeat(4, minmax(0, 1fr));  /* 告訴 Grid 欄位的最小寬度可以是 0 */
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .second_part .b9{
+        object-fit: cover;
+        grid-column: span 2;
+    }
+
+    .second_part .b10{
+        object-fit: cover;
+        grid-column: span 2;
+    }
+}
+
+@media (360px < width <= 600px){
+    body{
+        font-size: 2rem;
+    }
+
+    header{
+        width: 100%;
+    }
+
+    #menu_icon{
+        display: block;  /* 讓按鈕可以看見 */
+    }
+
+    /* 與JavaScript連動的功能 */
+    #menu_icon.active{
+        display: none;
+    }
+
+    /* 與JavaScript連動的功能 */
+    .hamberger_bg.active{
+        display: block;
+        z-index: 98;
+    }
+
+    nav .ul_nav{
+        display: none;
+    }
+
+    /* 與JavaScript連動的功能 */
+    .ul_nav.active{
+        display: block;
+        top: 0;
+        right: 0;
+        margin-right: 0;
+        width: 58%;
+        height: 100%;
+        z-index: 99;
+        text-align: center;
+    }
+
+    .ul_nav li{
+        padding-left: 0;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* 與JavaScript連動的功能 */
+    #menu_close_btn.active{
+        display: block;
+        font-family: serif;
+        z-index: 100;
+    }
+
+    .section_title{
+        width: 100%;
+        height: 250px;
+        font-size: 4rem;
+    }
+
+    .main{
+        width: 90%;
+        justify-content: center;
+    }
+
+    .second_part .sec_block{
+        height: 100%;
+    }
+
+    /* bar的部分 */
+    .first_part{
+        grid-template-columns: repeat(1, minmax(0, 1fr));  /* 告訴 Grid 欄位的最小寬度可以是 0 */
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .bar1{
+        grid-column: 1/ span 1;
+    }
+
+    .bar2{
+        grid-column: span 1;
+    }
+
+    .bar3{
+        grid-column: span 1;
+    }
+
+    /* Content Blocks的部分 */
+    .second_part{
+        grid-template-columns: repeat(1, minmax(0, 1fr));  /* 告訴 Grid 欄位的最小寬度可以是 0 */
+        grid-template-rows: repeat(10, 1fr);
+    }
+
+    .second_part .sec_block{
+        object-fit: cover;
+        grid-column: span 1;
+    }
+}
+
+
+
+
+
+
+
+
+

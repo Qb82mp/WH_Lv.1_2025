@@ -1,0 +1,124 @@
+{% extends "baseWeb.html" %}
+
+{% block header %}
+    <div class="titleStr">
+        {% if pageTitle %}
+            {{ pageTitle }}
+        {% else %}
+            歡迎光臨，請註冊登入系統
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block blockone %}
+    {% if pageTitle %}
+        <div class="loggedInfo">
+            {% if name %}
+                <div class="identityStr">                
+                    <div class="info">{{ name }}，歡迎登入系統</div>
+                </div>
+                <div class="identityLogOut">
+                    <a href="javascript:void(0)"  class="logOutBtn" id="logOut_btn">登出系統</a>
+                </div>
+            {% else %}
+                <div class="errorStr">                
+                    <div class="errorInfo">{{ errInfo }}</div>
+                </div>
+            {% endif %}
+        </div>  
+    {% else %}
+        <!-- 若要使用input的提醒功能(required)，需要使用<form></form>將input包起來，提醒功能才會被觸發 -->
+        <form class="registerBlock" id="form_one">
+            <div class="title">註冊帳號</div>
+            <div class="nameBlock">
+                <div class="nameTitle">姓名</div>
+                <!-- input使用required，會確保使用者必須輸入內容，才能送出表單。 -->
+                <input type="text" class="nameStr" id="name_text" required>  
+            </div>
+            <div class="emailBlock">
+                <div class="emailTitle">信箱</div>
+                <input type="email" class="emailStr" id="email_text" required>
+            </div>
+            <div class="passBlock">
+                <div class="passTitle">密碼</div>
+                <input type="password" class="passStr" id="pw_text" required>
+            </div>
+            <div class="submit">
+                <!-- 因button的type等於submit，會自動執行提交表單的預設行為，但又需要submit的驗證，
+                所以需要在JavaScript的部分阻止預設行為。 -->
+                <button type="submit" class="registerBtn" id="register_btn">註冊</button>
+            </div>
+        </form>
+        <hr>
+    {% endif %}
+{% endblock %}
+
+
+{% block blocktwo %}
+    {% if pageTitle %}
+        {% if name %}
+            <hr>
+            <form class="inputMsgBlock" id="msgForm_two">
+                <div class="title">快來留言吧</div>
+                <div class="msgBlock">
+                    <div class="msgTitle">內容</div>
+                    <input type="text" class="msgStr" id="msg_text" required>
+                </div>
+                <div class="comment">
+                    <button type="submit" class="msgInputBtn" id="msgInput_btn">送出</button>
+                </div>               
+            </form>
+        {% endif %}
+    {% else %}
+        <form class="loginBlock"  id="form_two">
+            <div class="title">登入系統</div>
+            <div class="emailBlock">
+                <div class="emailTitle">信箱</div>
+                <input type="email" class="loginEmail" id="loginEmail_text" required>
+            </div>
+            <div class="passBlock">
+                <div class="passTitle">密碼</div>
+                <input type="password" class="loginPass" id="loginPass_text" required>
+            </div>
+            <div class="login">
+                <button type="submit" class="loginBtn" id="login_btn">登入</button>
+            </div>
+        </form>
+    {% endif %}
+{% endblock %}
+
+{% block blockthree %}
+    {% if pageTitle and name %}
+    <hr>
+    <div class="loggedComment">
+        <ul>
+            {% for i in comments %}
+                <li>
+                    {% if name ==  comments[i].name %}
+                        <div class="commentUser">{{ comments[i].name }}：</div>
+                        <div id="comm_str{{ comments[i].msg_id }}">{{ comments[i].content }} </div>
+                        <div class="delBtnBlock">
+                            <button type="button" class="delBtn" data-comment-id="{{ comments[i].msg_id }}">
+                                <div class="delIcon">X</div>
+                            </button>
+                        </div>
+                    {% else %}
+                        <div class="commentUser">{{ comments[i].name }}</div>
+                        <div>：{{ comments[i].content }} </div>             
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block scriptblock %}
+    {% if pageTitle %}
+        {% if name %}
+            <script src="{{ url_for('static', path='/logged.js')}}"></script>
+        {% endif %}
+    {% else %}
+        <script src="{{ url_for('static', path='/memberSystem.js')}}"></script>
+    {% endif %}
+{% endblock %}

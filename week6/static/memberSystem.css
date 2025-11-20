@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%; /* 10px -> 1rem*/
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background-color: #223344;
+    display: flex;
+    justify-content: center;
+}
+
+hr{
+    margin-top: 3rem;
+    border-color: #fffefe;
+    opacity: 0.5;
+}
+
+.titleStr {
+    font-size: 2.5rem;
+    font-weight: bold;
+    align-self: center;
+    color: #fff;
+    font-family: 'Fantasy';
+}
+
+.registerBlock, .loginBlock, .inputMsgBlock{
+    font-size: 2rem;
+    position: relative;
+}
+
+.loggedInfo, .loggedComment{
+    font-size: 2rem;
+    font-family: 'Microsoft JhengHei';
+    margin-top: 2rem;
+}
+
+.loggedComment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loggedComment ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.loggedComment ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title, .nameBlock, .emailBlock, .passBlock, 
+.submit, .login, .msgBlock, .comment{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-self: center;
+}
+
+.identityStr, .identityLogOut, .errorStr{
+    padding-top: .5rem;
+    justify-self: center;
+    align-self: center;
+}
+
+.title{
+    font-weight: bold;
+    align-self: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.nameBlock, .emailBlock, .passBlock, .msgBlock{
+    margin: 1rem;
+}
+
+.submit, .login, .msgBlock{
+    justify-content: center;
+}
+
+.registerBtn, .loginBtn, .msgInputBtn{
+    width: 4.5rem;
+    height: 3rem;
+    align-items: center;
+}
+
+.commentUser{
+    font-weight: bold;
+    font-family: 'Fantasy';
+}
+
+.delBtnBlock{
+    display: flex;
+    justify-content: center;
+    margin-left: 0.5rem;
+}
+
+.delBtn{
+    width: 2.7rem;
+    height: 2.3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.delIcon{
+    font-size: 1.5rem;
+    font-family: 'Verdana';
+    text-align: center;
+}
+
+.nameStr, .emailStr, .passStr, .msgStr, 
+.loginEmail, .loginPass{
+    font-size: 1.5rem;
+}
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>會員系統</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link href="{{ url_for('static', path='/loginStatus.css')}}" rel="stylesheet">
+    </head>
+    <body>
+        <header class="headTitle">
+            <span class="titleStr" id="title-str">失敗頁面</span>
+        </header>
+        <div class="message">
+            <span class="messageStr" id="errorMsg"></span>
+        </div>
+        <script src="{{ url_for('static', path='/loginError.js')}}"></script>
+    </body>
+</html>
