@@ -39,12 +39,14 @@ def root(request: Request):
 
 @app.get("/member")
 def memberPage(request: Request):
-    if request.session.get("name") != None:
-        comment = mysqlConnect.getComment()
+    if request.session.get("name") != None and request.session.get("userId"):
+        user_id = request.session["userId"]
+        comment = mysqlConnect.getComment(user_id)
         context = {
             "request": request,
             "pageTitle": "歡迎光臨，這是會員頁",
-            "name": request.session["name"]
+            "name": request.session["name"],
+            "user_id": request.session["userId"],
         }
         if comment != {}:
             context["comments"] = comment

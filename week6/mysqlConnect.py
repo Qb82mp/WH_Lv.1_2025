@@ -32,17 +32,14 @@ def checkEmailIsDuplicate(item):
     #print("1")
     try:
         #print("2")
-        cursor.execute(
-            "SELECT email FROM member"
-            )
-        emailDtat = cursor.fetchall()
-        for (email,) in emailDtat:
-            db_email = (email).lower()
-            input_email = (item.email).lower()
-            if db_email == input_email:
-                _result = True
-                #print("有重複")
-                break
+        selectEmail = """SELECT email FROM member WHERE LOWER(email) = LOWER(%s);"""
+        data = item.email
+        cursor.execute(selectEmail, (data,))
+        emailData = cursor.fetchall()
+        if emailData != []:
+            _result = True
+            #print("有重複")
+
         if _result != True:
             # 將值儲存進資料庫中
             add_member = ("INSERT INTO member (name, email, password)"
@@ -114,16 +111,21 @@ def saveComment(commInfo):
     else:
         return "未寫入完成"
     
-def getComment():
+def getComment(userId):
     _result={}
     cnx = getConnection()
     cursor = cnx.cursor()
     try:
-        cursor.execute("SELECT msg.id AS msg_id , memb.name AS name, msg.content AS content FROM message AS msg INNER JOIN member AS memb ON memb.id = msg.member_id ORDER BY msg.time DESC")
+        cursor.execute("SELECT memb.id AS memb_id, memb.name AS name, msg.id AS msg_id ,msg.content AS content FROM message AS msg INNER JOIN member AS memb ON memb.id = msg.member_id ORDER BY msg.time DESC")
         commData = cursor.fetchall()
         i = 0
-        for msg_id, name, content, in commData:
-            _result[i] = {"name": name, "content": content, "msg_id": msg_id}
+        id = ""
+        for memb_id, name, msg_id, content, in commData:
+            if memb_id == userId:
+                id = memb_id
+            else:
+                id = ""
+            _result[i] = {"membId": id, "name": name, "content": content, "msg_id": msg_id}
             i +=1
 
     finally:
@@ -143,7 +145,7 @@ def delComment(commId):
         delRow = cursor.rowcount
         if delRow > 0:
             _result = True
-            print("刪除")
+            #print("刪除")
     finally:
         if _result == True:
             cnx.commit()

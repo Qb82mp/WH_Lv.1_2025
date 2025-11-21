@@ -94,7 +94,7 @@
         <ul>
             {% for i in comments %}
                 <li>
-                    {% if name ==  comments[i].name %}
+                    {% if user_id ==  comments[i].membId %}
                         <div class="commentUser">{{ comments[i].name }}：</div>
                         <div id="comm_str{{ comments[i].msg_id }}">{{ comments[i].content }} </div>
                         <div class="delBtnBlock">
@@ -103,8 +103,8 @@
                             </button>
                         </div>
                     {% else %}
-                        <div class="commentUser">{{ comments[i].name }}</div>
-                        <div>：{{ comments[i].content }} </div>             
+                        <div class="commentUser">{{ comments[i].name }}：</div>
+                        <div>{{ comments[i].content }} </div>             
                     {% endif %}
                 </li>
             {% endfor %}
