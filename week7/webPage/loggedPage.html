@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>會員系統</title>
+        <link rel="stylesheet" href="/static/basePage.css">
+    </head>
+    <body>
+        <header>
+            <div class="headTitleStr">歡迎光臨，這是會員頁</div>
+        </header>
+        <div class="oneBlock">
+            <div>
+                <div class="userName" id="view-name">，歡迎登入系統</div>
+                <a href="javascript:void(0)" class="logOutBtn" id="logout-btn">登出系統</a>
+            </div>
+        </div>
+        <hr>
+        <form class="selectBlock" id="select-form">
+            <div>
+                <div class="loggedTitle">查詢會員姓名</div>
+                <div class="stageOne">
+                    <input type="text" id="memb-number" required>
+                    <button type="button" id="select-memb-name">查詢</button>
+                </div>
+                <div class="selectInfo" id="view-select-info"></div>
+            </div>
+        </form>
+        <form class="updtBlock" id="updt-form">
+            <div>
+                <div class="loggedTitle">更新我的姓名</div>
+                <div class="stageOne">
+                    <input type="text" id="up-my-name" required>
+                    <button type="button" id="updt-name">更新</button>
+                </div>
+                <div class="updtInfo" id="view-updt-info"></div>
+            </div>
+        </form>
+        <form class="seletMeBlock" id="select-me-form">
+            <div>
+                <div class="loggedTitle">誰查詢了我</div>
+                <div class="stageOne">
+                    <button type="button" id="select-my-name">更新</button>
+                </div>
+                <div class="selectMyInfo" id="view-who-select-my"></div>
+            </div>
+        </form>
+        <script>window.APP_INFO = JSON.parse('{{ info | default({}) | tojson | safe}}')</script>
+        <script src="/static/loggedPage.js"></script>
+    </body>
+</html>

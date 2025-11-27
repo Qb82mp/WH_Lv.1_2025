@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>會員系統</title>
+        <link rel="stylesheet" href="/static/basePage.css">
+    </head>
+    <body>
+        <header>
+            <div class="headTitleStr">歡迎光臨，請註冊登入系統</div>
+        </header>
+        <form class="signUpBlock" id="signUp-form">
+            <div>
+                <div class="title">註冊帳號</div>
+                <div class="stageOne">
+                    <div class="nameTitle">姓名</div>
+                    <input type="text" required>
+                </div>
+                <div class="stageOne">
+                    <div class="emailTitle">信箱</div>
+                    <input type="email" required>
+                </div>
+                <div class="stageOne">
+                    <div class="pwTitle">密碼</div>
+                    <input type="password" required>
+                </div>
+                <div class="signupBtn">
+                    <button type="submit" id="sign-info">註冊</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+
+        <form class="loginBlock" id="login-form">
+            <div>
+                <div class="title">登入系統</div>
+                <div class="stageOne">
+                    <div>信箱</div>
+                    <input type="email" required>
+                </div>
+                <div class="stageOne">
+                    <div>密碼</div>
+                    <input type="password" required>
+                </div>
+                <div class="loginBtn">
+                    <button type="submit" id="login-info">登入</button>
+                </div>
+            </div>
+        </form>
+        <script src="../static/basePage.js"></script>
+    </body>
+</html>

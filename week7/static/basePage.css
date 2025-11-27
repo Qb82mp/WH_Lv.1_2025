@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%; /* 16px * 0.625 -> 10px*/
+}
+
+header{
+    height: 6.5rem;
+    background-color: #223344;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr{
+    margin-top: 2rem;
+    color: #f4f5f7;
+    opacity: 0.4;
+}
+
+.headTitleStr{
+    font-size: 2.5rem;
+    font-weight: boldl;
+    color: #fff;
+    font-family: 'fantasy';
+}
+
+.loginBlock, .signUpBlock{
+    height: 20rem;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.signUpBlock div, .loginBlock div{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.title{
+    font-weight: bold;
+    text-align: center;
+}
+
+.stageOne{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+input{
+    height: 2.5rem;
+    width: 18rem;
+    font-size: 1.6rem;
+}
+
+.signupBtn, .loginBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: 4.5rem;
+    height: 3rem;
+}
+
+/* 以下為errorPage HTML的CSS */
+.errorInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: 'Microsoft JhengHei';
+    margin: 2rem;
+}
+
+/* 以下為loggedPage HTML CSS*/
+ .oneBlock, .selectBlock, .updtBlock, .seletMeBlock{
+    margin-top: 2.5rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.loggedTitle{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.selectInfo, .updtInfo{
+    text-align: center;
+}
+
+.selectMyInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logOutBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.selectMyInfo ul li{
+    list-style-type: none;
+}
