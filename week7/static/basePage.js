@@ -67,15 +67,7 @@ async function loginWeb() {
                                 'Content-Type': 'application/json'
                                 },
                             body: JSON.stringify(logInfo)
-                            })//.then(data => {
-                            //     const url = data["url"];
-                            //     const userName = {name: data["name"]};
-                            //     // 將資料放至sessionStorage.setItem，以便之後跳頁還是可以取得資料
-                            //     sessionStorage.setItem("name", JSON.stringify(userName));
-                            //     window.location.href = url;
-                            // }).catch(error => {
-                            //     throw new Error('HTTP ERROR, Status:', response.status);
-                            // });                        
+                            })                        
             if(!response.ok){
                 throw new Error('HTTP ERROR, Status:', response.status);
             }else{
